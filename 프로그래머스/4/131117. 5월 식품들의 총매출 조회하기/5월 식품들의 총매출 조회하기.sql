@@ -1,0 +1,21 @@
+-- 코드를 입력하세요
+
+
+# select fo.PRODUCT_ID , fp.PRODUCT_NAME, sum(fp.PRICE) as TOTAL_SALES 
+# from FOOD_ORDER fo inner join FOOD_PRODUCT fp 
+# on fo.PRODUCT_ID = fp.PRODUCT_ID
+# where DATE_FORMAT(fo.PRODUCE_DATE , '%Y-%m') ='2022-05'
+# order by TOTAL_SALES desc , fo.PRODUCT_ID asc;
+
+/*
+1. id기준 join
+2. 제품명 gb
+3. 가격 * 양 컬럼 설정
+4. 총매출 desc, id 오름차
+*/
+SELECT P.PRODUCT_ID, PRODUCT_NAME, SUM(PRICE * AMOUNT) TOTAL_SALES
+FROM FOOD_PRODUCT P JOIN FOOD_ORDER F
+ON P.PRODUCT_ID = F.PRODUCT_ID
+WHERE PRODUCE_DATE LIKE '2022-05%'
+GROUP BY PRODUCT_NAME
+ORDER BY TOTAL_SALES DESC, 1
