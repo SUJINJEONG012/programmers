@@ -1,3 +1,2 @@
-SELECT COUNT(*) AS USERS FROM USER_INFO
-WHERE JOINED LIKE '2021%' AND 
-AGE BETWEEN 20 AND 29 ;
+select count(*)as USERS from USER_INFO
+where age >= 20 and age <= 29 and  JOINED like '2021%'
